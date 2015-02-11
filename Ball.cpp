@@ -1,7 +1,6 @@
 #include"Ball.h"
 #include"Global.h"
 #include"Platform.h"
-#include<SDL.h>
 
 void Ball::update(std::vector<Platform*> platforms)
 {

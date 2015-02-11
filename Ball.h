@@ -1,7 +1,11 @@
 #ifndef BALL_H
 #define BALL_H
 
-#include<SDL.h>
+#if defined __linux__
+#include <SDL2/SDL.h>
+#elif defined _WIN32
+#include <SDL.h>
+#endif
 
 #include<vector>
 

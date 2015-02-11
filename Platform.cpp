@@ -1,6 +1,11 @@
 #include "Platform.h"
 #include"Global.h"
-#include<SDL.h>
+
+#if defined __linux__
+#include <SDL2/SDL.h>
+#elif defined _WIN32
+#include <SDL.h>
+#endif
 
 void Platform::draw(SDL_Renderer* renderer)
 {
