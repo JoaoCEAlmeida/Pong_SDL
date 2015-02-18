@@ -1,9 +1,37 @@
 #include "PCPlat.h"
 #include"Global.h"
+#include "Ball.h"
 
+#define SPEED 0.5
 
 void PCPlat::update()
 {
+	if (bola->vx > 0)
+	{
+		if(bola->y > y )
+		{
+			v+=SPEED;
+		}
+
+		else if(bola->y < y )
+		{
+			v-=SPEED;
+		}
+	}
+
+	else
+	{
+		if(SCREEN_HEIGHT / 2 > y )
+		{
+			v+=SPEED;
+		}
+
+		else if(SCREEN_HEIGHT / 2 < y )
+		{
+			v-=SPEED;
+		}
+	}
+
 	if(y+height+v > SCREEN_HEIGHT)
 	{
 
@@ -20,5 +48,6 @@ void PCPlat::update()
 
 	}
 
+	v*=0.95;
 	y+=v;
 }

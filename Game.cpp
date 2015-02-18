@@ -18,9 +18,10 @@ bool Game::start()
 
 	done = false;
 
-	Platform* player = new JogadorPlat(5,SCREEN_HEIGHT/2,50,10);
-	Platform* PC = new PCPlat(SCREEN_WIDTH-5-10,SCREEN_HEIGHT/2,50,10);
 	ball = new Ball(SCREEN_WIDTH/2,SCREEN_HEIGHT/2,8);
+
+	Platform* player = new JogadorPlat(5,SCREEN_HEIGHT/2,50,10);
+	Platform* PC = new PCPlat(SCREEN_WIDTH-5-10,SCREEN_HEIGHT/2,50,10,ball);
 
 	platforms.push_back(player);
 	platforms.push_back(PC);
@@ -70,9 +71,6 @@ void Game::input()
 				break;
 		}
 	}
-
-
-
 }
 
 void Game::update()

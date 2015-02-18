@@ -13,10 +13,10 @@ class Platform;
 
 class Ball
 {
+public:
+
 	int x,y,size;
 	float vx,vy;
-
-public:
 
 	Ball(int x,int y,int size)
 	{

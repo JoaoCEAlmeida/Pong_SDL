@@ -9,13 +9,10 @@
 
 class Platform
 {
-protected:
+public:
 
 	int x,y,height,width;
 	float v;
-
-public:
-
 	virtual void update()=0;
 	void draw(SDL_Renderer* renderer);
 };
