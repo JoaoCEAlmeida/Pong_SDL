@@ -21,15 +21,21 @@ void PCPlat::update()
 
 	else
 	{
-		if(SCREEN_HEIGHT / 2 > y )
+		if(SCREEN_HEIGHT / 2 > y+height/2 )
 		{
 			v+=SPEED;
 		}
 
-		else if(SCREEN_HEIGHT / 2 < y )
+		else if(SCREEN_HEIGHT / 2 < y+height/2 )
 		{
 			v-=SPEED;
 		}
+
+		else if(SCREEN_HEIGHT / 2 == y+height/2 )
+		{
+			v = 0;
+		}
+
 	}
 
 	if(y+height+v > SCREEN_HEIGHT)

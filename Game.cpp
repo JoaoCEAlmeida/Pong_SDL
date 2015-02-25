@@ -4,6 +4,8 @@
 #include"Ball.h"
 #include"Global.h"
 
+#include <Windows.h>
+
 bool Game::start()
 {
 	if(SDL_Init(SDL_INIT_EVERYTHING) != 0)
@@ -15,9 +17,8 @@ bool Game::start()
 
 	}
 
-
 	done = false;
-
+	p=false;
 	ball = new Ball(SCREEN_WIDTH/2,SCREEN_HEIGHT/2,8);
 
 	Platform* player = new JogadorPlat(5,SCREEN_HEIGHT/2,50,10);
@@ -32,12 +33,17 @@ bool Game::start()
 
 void Game::play()
 {
+
 	while(!done)
 	{
 		input();
-		update();
-		draw();
-		SDL_Delay(1000/60);
+
+		if(!p)
+		{
+			update();
+		}
+			draw();
+			SDL_Delay(1000/60);		
 	}
 
 	end();
@@ -61,6 +67,13 @@ void Game::input()
 					moveUp = true;
 				if(gameEvent.key.keysym.sym == SDLK_DOWN)
 					moveDown = true;
+				if(gameEvent.key.keysym.sym == SDLK_p)
+				{
+					if(p) p=false;
+					else
+						p=true;
+				}
+	
 				break;
 
 			case SDL_KEYUP:
@@ -68,7 +81,6 @@ void Game::input()
 					moveUp = false;
 				if(gameEvent.key.keysym.sym == SDLK_DOWN)
 					moveDown = false;
-				break;
 		}
 	}
 }
@@ -96,6 +108,7 @@ void Game::draw()
 
 	SDL_RenderPresent(gameRenderer);
 }
+
 
 void Game::end()
 {

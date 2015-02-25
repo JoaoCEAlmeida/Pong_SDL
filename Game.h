@@ -22,6 +22,7 @@ class Game
 	Ball* ball;
 	
 	bool done;
+	bool p;
 	void input();
 	void update();
 	void draw();
