@@ -10,6 +10,6 @@
 void Platform::draw(SDL_Renderer* renderer)
 {
 	SDL_Rect rect={x,y,width,height};
-	SDL_SetRenderDrawColor(renderer,255,255,255,255);
+	SDL_SetRenderDrawColor(renderer,204,229,255,255);
 	SDL_RenderFillRect(renderer,&rect);
 }
