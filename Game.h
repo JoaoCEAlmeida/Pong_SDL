@@ -11,6 +11,7 @@
 
 class Platform;
 class Ball;
+class Line;
 
 class Game
 {
@@ -20,7 +21,8 @@ class Game
 
 	std::vector<Platform*> platforms;
 	Ball* ball;
-	
+	std::vector<Line*> lines;
+
 	bool done;
 	bool p;
 	void input();
