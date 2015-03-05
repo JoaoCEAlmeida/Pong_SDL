@@ -6,7 +6,10 @@
 
 void PCPlat::update()
 {
-	if (bola->vx > 0)
+	
+	//modo facil
+
+	/*if (bola->vx > 0)
 	{
 		if(bola->y > y )
 		{
@@ -17,23 +20,32 @@ void PCPlat::update()
 		{
 			v-=SPEED;
 		}
-	}
+	}*/
+	
 
-	else
+	if (bola->vx > 0)
 	{
-		if(SCREEN_HEIGHT / 2 > y+height/2 )
+		if(bola->positionBall() -15 > y )
 		{
 			v+=SPEED;
 		}
 
-		else if(SCREEN_HEIGHT / 2 < y+height/2 )
+		else if(bola->positionBall() + 15 < y )
 		{
 			v-=SPEED;
 		}
-
-		else if(SCREEN_HEIGHT / 2 == y+height/2 )
+	}
+	
+	else
+	{
+		if(SCREEN_HEIGHT / 2 -30 > y+height/2 )
 		{
-			v = 0;
+			v+=SPEED;
+		}
+
+		else if(SCREEN_HEIGHT / 2 + 30 < y+height/2 )
+		{
+			v-=SPEED;
 		}
 
 	}
@@ -53,7 +65,7 @@ void PCPlat::update()
 		v=0;
 
 	}
-
+	
 	v*=0.95;
 	y+=v;
 }

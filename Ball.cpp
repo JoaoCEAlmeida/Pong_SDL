@@ -31,6 +31,7 @@ void Ball::update(std::vector<Platform*> platforms)
 		x=SCREEN_WIDTH/2;
 		vx *= -1;
 		vy = 0;
+		scores++;
 		Sleep(1000);
 		
 	}
@@ -41,6 +42,7 @@ void Ball::update(std::vector<Platform*> platforms)
 		x=SCREEN_WIDTH/2;
 		vx *= -1;
 		vy = 0;
+		scoresPC++;
 		Sleep(1000);
 
 	}
@@ -71,4 +73,34 @@ void Ball::draw(SDL_Renderer* renderer)
 	SDL_SetRenderDrawColor(renderer,255,255,255,255);
 	SDL_RenderFillRect(renderer,&rect);
 
+}
+
+
+int Ball::positionBall()
+{
+	int y1=y,x1=x;
+	double vx1=vx,vy1=vy;
+	while(x1+size+vx1 < SCREEN_WIDTH - 10)
+	{
+	if(y1+size+vy1 > SCREEN_HEIGHT)
+	{
+
+		y1=SCREEN_HEIGHT-size;
+		vy1*=-1;
+
+	}
+
+	if(y1+vy1 < 0)
+	{
+
+		y1=0;
+		vy1*=-1;
+
+	}
+	
+	x1+=vx1;
+	y1+=vy1;
+	}
+
+	return y1;
 }

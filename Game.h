@@ -21,10 +21,11 @@ class Game
 
 	std::vector<Platform*> platforms;
 	Ball* ball;
-	std::vector<Line*> lines;
+	Line *line;
 
 	bool done;
 	bool p;
+
 	void input();
 	void update();
 	void draw();

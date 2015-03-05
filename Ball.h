@@ -28,6 +28,7 @@ public:
 	}
 	void update(std::vector<Platform*> platforms);
 	void draw(SDL_Renderer* renderer);
+	int positionBall();
 };
 
 #endif

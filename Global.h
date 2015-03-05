@@ -6,4 +6,7 @@
 
 extern bool moveUp,moveDown;
 
+extern int scores;
+extern int scoresPC;
+
 #endif
